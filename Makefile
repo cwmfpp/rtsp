@@ -1,9 +1,10 @@
 SRC := $(wildcard src/*.cpp)
 
-CROSS :=
+CROSS :=arm-hisiv500-linux-
 #CROSS := arm-linux-androideabi-
 #TARGET := libcircqueue_v100nptl.so
 
+LIBRARY_PATH:=./lib/$(CROSS)
 
 ifeq ($(Varago),Y)
 export PATH:=$(PATH):/work/TI8127_COMPILE_V3.5/bin
@@ -14,7 +15,7 @@ endif
 TARGET := librtspclient.so
 
 DEFAULT_INCLUDES = -I./include -I ./include/live555/BasicUsageEnvironment -I ./include/live555/groupsock -I ./include/live555/liveMedia -I ./include/live555/UsageEnvironment -I./lib
-LINK_FLAGS = -Os -Wall -L./lib/x86 -lliveMedia -lBasicUsageEnvironment -lgroupsock -lUsageEnvironment
+LINK_FLAGS = -Os -Wall -L$(LIBRARY_PATH) -lliveMedia -lBasicUsageEnvironment -lgroupsock -lUsageEnvironment
 CFLAGS = -Wall -Os -c -fPIC $(DEFAULT_INCLUDES)
 CC = gcc
 STRIP = strip
