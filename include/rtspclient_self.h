@@ -35,6 +35,7 @@ public:
                                           no Authentication rtsp://192.168.128.30:8554/slamtv60.264;
                                         */
     RTSPClient_CallBack* m_pRTSPClientCallBack;//callback
+    void *m_pvPri;
 };
 
 

@@ -694,7 +694,7 @@ int RTSPClientSession::StartRTSPClientSession(RTSPClientInfo *_pRTSPClientInfo)
 
     m_pRTSPClient = openURL(*env, "wenminchen@126.com", _pRTSPClientInfo->m_cRTSPUrl);
     ((ourRTSPClient*)m_pRTSPClient)->m_pRTSPClientCallBack = _pRTSPClientInfo->m_pRTSPClientCallBack;
-    ((ourRTSPClient*)m_pRTSPClient)->m_pvPri = this;
+    ((ourRTSPClient*)m_pRTSPClient)->m_pvPri = _pRTSPClientInfo->m_pvPri;
 
     //StreamClientState& scs = ((ourRTSPClient*)m_pRTSPClient)->scs; // alias
 
@@ -718,10 +718,12 @@ void TestRTSPClientSession()
 
     RTSPClientSession stRTSPClientSession;
     RTSPClientSession stRTSPClientSession2;
+    int iPri = 0;
 
     RTSPClientInfo stRTSPClientInfo;
     snprintf(stRTSPClientInfo.m_cRTSPUrl, sizeof(stRTSPClientInfo.m_cRTSPUrl), "%s", "rtsp://192.168.128.30:8554/slamtv60.264");
     stRTSPClientInfo.m_pRTSPClientCallBack = TestRTSPClient_CallBack;
+    stRTSPClientInfo.m_pvPri = (void *)iPri;
     stRTSPClientSession.StartRTSPClientSession(&stRTSPClientInfo);
 
     snprintf(stRTSPClientInfo.m_cRTSPUrl, sizeof(stRTSPClientInfo.m_cRTSPUrl), "%s", "rtsp://192.168.128.30:8554/slamtv61.264");
