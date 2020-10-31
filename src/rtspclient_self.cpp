@@ -464,7 +464,6 @@ void shutdownStream(RTSPClient* rtspClient, int exitCode) {
     // (Of course, if you're embedding this code into your own application, you might want to comment this out,
     // and replace it with "eventLoopWatchVariable = 1;", so that we leave the LIVE555 event loop, and continue running "main()".)
     env << "chenwenmin pid" << getpid() << " "  << __func__ << ":"<< __LINE__ << " rtspClientCount=" << rtspClientCount << ".\n";
-    exit(exitCode);
   }
 }
 
