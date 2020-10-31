@@ -1,6 +1,6 @@
 SRC := $(wildcard src/*.cpp)
 
-CROSS :=arm-hisiv500-linux-
+CROSS?=arm-hisiv500-linux-
 #CROSS := arm-linux-androideabi-
 #TARGET := libcircqueue_v100nptl.so
 
